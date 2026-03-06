@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products | Juniper International</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0a4a7a;
+            --secondary-blue: #2a7db6;
+            --accent-green: #2ecc71;
+            --light-gray: #f8f9fa;
+            --dark-gray: #333;
+            --text-gray: #555;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-gray);
+            line-height: 1.6;
+            padding-top: 76px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+        
+        .navbar {
+            background-color: white !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            transition: all 0.3s;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary-blue) !important;
+        }
+        
+        .navbar-brand span {
+            color: var(--accent-green);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 8px;
+            color: var(--dark-gray) !important;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--secondary-blue) !important;
+        }
+        
+        .nav-link.active:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-green);
+        }
+        
+        .product-hero {
+            height: 50vh;
+            background: linear-gradient(rgba(10, 74, 122, 0.8), rgba(10, 74, 122, 0.9)), 
+                        url('https://images.unsplash.com/photo-1516549655669-df6654e435de?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-top: -76px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-green);
+        }
+        
+        .text-center .section-title:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .product-category {
+            margin-bottom: 80px;
+        }
+        
+        .product-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            height: 100%;
+            border: 1px solid #eee;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-features {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+        
+        .product-features li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .product-features li i {
+            color: var(--accent-green);
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        
+        .product-gallery {
+            margin-top: 30px;
+        }
+        
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .product-icon {
+            background-color: var(--primary-blue);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-blue);
+            border-color: var(--secondary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .modal-img {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+        }
+        
+        .footer {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer h5 {
+            color: white;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer h5:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-green);
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent-green);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .product-hero {
+                height: 40vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            body {
+                padding-top: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+
+                <i class="fa-solid fa-hospital me-2"></i>Juniper<span>International</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <a href="contact.html" class="btn btn-primary ms-lg-3">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="product-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Our Medical Products</h1>
+                <p class="lead">High-quality medical equipment and consumables for healthcare institutions across Nepal</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Surgical Products -->
+            <div id="surgical" class="product-category">
+                <h2 class="section-title">Surgical Products & PPE</h2>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Surgical Gloves">
+                            <div class="product-info">
+                                <h4>Surgical Gloves</h4>
+                                <p>Sterile latex and non-latex surgical gloves for medical procedures. Available in various sizes and thicknesses.</p>
+                                <ul class="product-features">
+                                    <li><i class="fas fa-check"></i>Powder-free options</li>
+                                    <li><i class="fas fa-check"></i>Ambidextrous design</li>
+                                    <li><i class="fas fa-check"></i>CE and FDA certified</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1584634731339-252c581abfc5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Surgical Masks">
+                            <div class="product-info">
+                                <h4>Surgical Masks & N95 Respirators</h4>
+                                <p>3-ply surgical masks and N95 respirators for infection control in medical settings.</p>
+                                <ul class="product-features">
+                                    <li><i class="fas fa-check"></i>High filtration efficiency</li>
+                                    <li><i class="fas fa-check"></i>Comfortable nose bridge</li>
+                                    <li><i class="fas fa-check"></i>Adjustable ear loops</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1583947581924-860bda6a26df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="PPE Kits">
+                            <div class="product-info">
+                                <h4>Complete PPE Kits</h4>
+                                <p>Full personal protective equipment sets including gowns, face shields, gloves, and shoe covers.</p>
+                                <ul class="product-features">
+                                    <li><i class="fas fa-check"></i>Level 1-4 protection</li>
+                                    <li><i class="fas fa-check"></i>Fluid-resistant materials</li>
+                                    <li><i class="fas fa-check"></i>Single-use disposable</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+                <!-- Gallery for Surgical Products -->
+                <div class="product-gallery">
+                    <h4 class="mb-4">Product Gallery</h4>
+                    <div class="row g-3">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2032&q=80">
+                                <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2032&q=80" alt="Medical Supplies">
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80">
+                                <img src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Surgical Equipment">
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://images.unsplash.com/photo-1584634731339-252c581abfc5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80">
+                                <img src="https://images.unsplash.com/photo-1584634731339-252c581abfc5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Medical Masks">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6">
+                            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://images.unsplash.com/photo-1583947581924-860bda6a26df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80">
+                                <img src="https://images.unsplash.com/photo-1583947581924-860bda6a26df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="PPE Equipment">
+                            </div>
+                        </div>
+
+                         <div class="col-md-3 col-sm-6">
+                            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="img/ads_photo4.jpg">
+                                <img src="img/ads_photo4.jpg" alt="PPE Equipment">
+                            </div>
+                        </div>
+
+
+    <div class="col-md-3 col-sm-6">
+                            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="img/ads_photo1.jpg">
+                                <img src="img/ads_photo1.jpg" alt="PPE Equipment">
+                            </div>
+                        </div>
+
+                            <div class="col-md-3 col-sm-6">
+                            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="img/ads_photo2.jpg">
+                                <img src="img/ads_photo2.jpg" alt="PPE Equipment">
+                            </div>
+                        </div>
+
+                            <div class="col-md-3 col-sm-6">
+                            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="img/ads_photo3.jpg">
+                                <img src="img/ads_photo3.jpg" alt="PPE Equipment">
+                            </div>
+                        </div>
+
+
+   <div class="col-md-3 col-sm-6">
+                            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="img/Detoxifying_facewash.jpg">
+                                <img src="img/Detoxifying_facewash.jpg" alt="PPE Equipment">
+                            </div>
+                        </div>
+
+
+   <div class="col-md-3 col-sm-6">
+                            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="img/Pro_hydrating_light_moisturizer.jpg">
+                                <img src="img/Pro_hydrating_light_moisturizer.jpg" alt="PPE Equipment">
+                            </div>
+                        </div>
+
+
+
+   <div class="col-md-3 col-sm-6">
+                            <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://www.dramshealthcare.com/images/products/c1.jpg">
+                                <img src="https://www.dramshealthcare.com/images/products/c1.jpg" alt="PPE Equipment">
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            
+            <!-- Medical Consumables -->
+            <div id="consumables" class="product-category">
+                <h2 class="section-title">Medical Consumables</h2>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="product-card">
+                            <img src="img/img2younghub.png" alt="Syringes and Needles">
+                            <div class="product-info">
+                                <h4>Syringes & Needles</h4>
+                                <p>Sterile hypodermic syringes and disposable needles in various sizes for injections and aspirations.</p>
+                                <ul class="product-features">
+                                    <li><i class="fas fa-check"></i>1ml to 60ml sizes</li>
+                                    <li><i class="fas fa-check"></i>Luer lock and slip tips</li>
+                                    <li><i class="fas fa-check"></i>Single-use disposable</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="product-card">
+                            <img src="img/img3younghub.png" alt="IV Cannulas">
+                            <div class="product-info">
+                                <h4>IV Cannulas & Sets</h4>
+                                <p>Intravenous cannulas, infusion sets, and accessories for fluid administration.</p>
+                                <ul class="product-features">
+                                    <li><i class="fas fa-check"></i>14G to 24G sizes</li>
+                                    <li><i class="fas fa-check"></i>Safety winged sets</li>
+                                    <li><i class="fas fa-check"></i>Transparent chambers</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="product-card">
+                            <img src="https://www.dramshealthcare.com/images/resource/offer-2.jpg" alt="Catheters">
+                            <div class="product-info">
+                                <h4>Catheters & Urine Bags</h4>
+                                <p>Foley catheters, urine bags, and urology products for patient care.</p>
+                                <ul class="product-features">
+                                    <li><i class="fas fa-check"></i>Various French sizes</li>
+                                    <li><i class="fas fa-check"></i>Latex-free options</li>
+                                    <li><i class="fas fa-check"></i>Sterile packaging</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+              
+            <!-- Medical Consumables -->
+<div id="consumables" class="product-category">
+    <h2 class="section-title">Essential Hospital Equipment</h2>
+    <div class="row g-4">
+
+        <!-- Patient Monitor -->
+        <div class="col-lg-4 col-md-6">
+            <div class="product-card">
+                <img src="https://medevis.who-healthtechnologies.org/files/attachments/85d16b00a12046be1f4ef06d149ac53d3c7a294b90db725b252ee8dda2adbbd3.jpeg" alt="Patient Monitor">
+                <div class="product-info">
+                    <h4>Patient Monitor</h4>
+                    <p>Advanced vital signs monitoring system used in hospitals, ICU, and emergency rooms.</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i>Monitors ECG, BP, SpO₂</li>
+                        <li><i class="fas fa-check"></i>Respiratory rate & temperature</li>
+                        <li><i class="fas fa-check"></i>Real-time continuous monitoring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Defibrillator -->
+        <div class="col-lg-4 col-md-6">
+            <div class="product-card">
+                <img src="https://medanta.s3.ap-south-1.amazonaws.com/blogs/December2024/72W9chJaEQJw88TS3EotlbgeLNVP9J-metaSW1wbGFudGFibGUgQ2FyZGlhYyBEZWZpYnJpbGxhdG9yLmpwZw==-.jpg" alt="Defibrillator">
+                <div class="product-info">
+                    <h4>Defibrillator</h4>
+                    <p>Life-saving device used to restore normal heart rhythm during cardiac arrest.</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i>Manual & AED options</li>
+                        <li><i class="fas fa-check"></i>Quick emergency response</li>
+                        <li><i class="fas fa-check"></i>Portable & hospital-grade models</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ventilator -->
+        <div class="col-lg-4 col-md-6">
+            <div class="product-card">
+                <img src="https://i.guim.co.uk/img/media/60bba82aaeedb75bb5d1d50e51f5e64283ae491a/0_325_4879_2928/master/4879.jpg?width=480&dpr=1&s=none&crop=none" alt="Ventilator">
+                <div class="product-info">
+                    <h4>Ventilator</h4>
+                    <p>Mechanical breathing support system for critically ill patients in ICU and operation theaters.</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i>Advanced respiratory support</li>
+                        <li><i class="fas fa-check"></i>Multiple ventilation modes</li>
+                        <li><i class="fas fa-check"></i>Suitable for ICU & emergency use</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+          <!-- . Insta Care Vitamin C Serum and Multivitamin Sunscreen (SPF 50+) --> 
+
+<div id="infusion" class="product-category">
+
+    <h2 class="section-title"> Product by Naked Fact </h2>
+
+    <div class="row g-4">
+  <!-- 1. Non-sticky Pro-hydrating Light Moisturizer -->
+        <div class="col-lg-4 col-md-6">
+            <div class="product-card">
+                <img src="img/Pro_hydrating_light_moisturizer.jpg" class="img-fluid" alt="Non-sticky Pro-hydrating Light Moisturizer">
+                <div class="product-info p-3">
+                    <h4>Non-sticky Pro-hydrating Light Moisturizer</h4>
+                    <p>Lightweight moisturizer in airless bottle with up to 96 hours hydration and SPF20 protection.</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Airless bottle packaging</li>
+                        <li><i class="fas fa-check"></i> Up to 96 hours hydration</li>
+                        <li><i class="fas fa-check"></i> Niacinamide (controls acne & redness)</li>
+                        <li><i class="fas fa-check"></i> Hyaluronic Acid for deep hydration</li>
+                        <li><i class="fas fa-check"></i> Vitamin E (repairs skin barrier)</li>
+                        <li><i class="fas fa-check"></i> Zinc Oxide with SPF20 protection</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+<!-- 2. Absolute Moist Multivitamin Sunscreen SPF 50 -->
+        <div class="col-lg-4 col-md-6">
+            <div class="product-card">
+                <img src="img/multivitamin_sunscreen.jpg" class="img-fluid" alt="Absolute Moist Multivitamin Sunscreen SPF 50">
+                <div class="product-info p-3">
+                    <h4>Absolute Moist Multivitamin Sunscreen (SPF 50)</h4>
+                    <p>Broad-spectrum UVA & UVB protection enriched with multivitamins and no white cast formula.</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> SPF 50 UVA & UVB protection</li>
+                        <li><i class="fas fa-check"></i> No white cast formula</li>
+                        <li><i class="fas fa-check"></i> Titanium Dioxide + Zinc Oxide</li>
+                        <li><i class="fas fa-check"></i> Hyaluronic Acid hydration</li>
+                        <li><i class="fas fa-check"></i> Niacinamide (acne & redness control)</li>
+                        <li><i class="fas fa-check"></i> Maintains skin pH balance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Insta Care Vitamin C Serum -->
+        <div class="col-lg-4 col-md-6">
+            <div class="product-card">
+                <img src="img/Vitamin_c_serum.jpg" class="img-fluid" alt="Insta Care Vitamin C Serum">
+                <div class="product-info p-3">
+                    <h4>Insta Care Vitamin C Serum</h4>
+                    <p>Stabilized 20% Vitamin C formula for brightening, acne control, and reducing early aging signs.</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> 20% Vitamin C (imported from Europe)</li>
+                        <li><i class="fas fa-check"></i> Niacinamide 2%</li>
+                        <li><i class="fas fa-check"></i> Hyaluronic Acid hydration</li>
+                        <li><i class="fas fa-check"></i> Brightens uneven skin tone</li>
+                        <li><i class="fas fa-check"></i> Reduces early aging signs</li>
+                        <li><i class="fas fa-check"></i> Non-watery stabilized formula</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        
+        <!-- 4. Collagen++ Cream -->
+        <div class="col-lg-4 col-md-6">
+            <div class="product-card">
+                <img src="img/Anti_Ageing_serum_main.jpg" class="img-fluid" alt="Collagen++ Cream">
+                <div class="product-info p-3">
+                    <h4>Collagen++ Cream</h4>
+                    <p>Advanced anti-aging cream with peptides, retinol and natural extracts for wrinkle-free glowing skin.</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Argireline peptide (wrinkle reduction)</li>
+                        <li><i class="fas fa-check"></i> Retinol (reverses early aging signs)</li>
+                        <li><i class="fas fa-check"></i> Saffron Extract (reduces pigmentation)</li>
+                        <li><i class="fas fa-check"></i> Hyaluronic Acid hydration</li>
+                        <li><i class="fas fa-check"></i> Niacinamide (acne control)</li>
+                        <li><i class="fas fa-check"></i> Vitamin E protection</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Collagen++ Serum -->
+        <div class="col-lg-4 col-md-6">
+            <div class="product-card">
+                <img src="img/Anti_Ageing_serum.jpg" class="img-fluid" alt="Collagen++ Serum">
+                <div class="product-info p-3">
+                    <h4>Collagen++ Serum</h4>
+                    <p>Peptide-rich serum that promotes collagen production and deeply hydrates the skin.</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Argireline peptide</li>
+                        <li><i class="fas fa-check"></i> Squalane (natural antioxidant)</li>
+                        <li><i class="fas fa-check"></i> Hyaluronic Acid</li>
+                        <li><i class="fas fa-check"></i> Carrot Seed Oil</li>
+                        <li><i class="fas fa-check"></i> Niacinamide</li>
+                        <li><i class="fas fa-check"></i> Vitamin E protection</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+         <!-- 6. Intense Protection Lipcare -->
+        <div class="col-lg-4 col-md-6">
+            <div class="product-card">
+                <img src="img/Lip_Balm_with_the_goodness_of_nature.jpg" class="img-fluid" alt="Intense Protection Lipcare">
+                <div class="product-info p-3">
+                    <h4>Intense Protection Lipcare</h4>
+                    <p>100% natural lip care formula for deep moisturization, healing and pigmentation control.</p>
+                    <ul class="product-features">
+                        <li><i class="fas fa-check"></i> Avocado Oil</li>
+                        <li><i class="fas fa-check"></i> Licorice Root Extract (Glycyrrhizin)</li>
+                        <li><i class="fas fa-check"></i> Vitamin E</li>
+                        <li><i class="fas fa-check"></i> Kokum Butter</li>
+                        <li><i class="fas fa-check"></i> Cow Ghee (reduces dark spots)</li>
+                        <li><i class="fas fa-check"></i> 100% Natural Ingredients</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    
+<!-- =========================
+     INFUSION & TRANSFUSION (SUB PRODUCTS ONLY)
+     ========================= -->
+
+<!-- 1. IV INFUSION SET ECONOMY -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/i1.jpg" class="img-fluid" alt="IV Infusion Set Economy">
+    <div class="product-info p-3">
+      <h4>IV INFUSION SET ECONOMY</h4>
+      <p>Standard IV infusion set designed for smooth flow control and safe administration.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Sharp spike for better penetration</li>
+        <li><i class="fas fa-check"></i> Superior quality latex tube/flash bulb for self-sealing</li>
+        <li><i class="fas fa-check"></i> Specially designed roller clamp for better flow control</li>
+        <li><i class="fas fa-check"></i> Top quality needle</li>
+        <li><i class="fas fa-check"></i> E.O Sterile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 2. I.V. INFUSION SET WITH DOUBLE NEEDLE -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/i2.jpg" class="img-fluid" alt="I.V. Infusion Set With Double Needle">
+    <div class="product-info p-3">
+      <h4>I.V. INFUSION SET WITH DOUBLE NEEDLE</h4>
+      <p>IV infusion set with dual-needle pack for flexible usage.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Cylindrical chamber</li>
+        <li><i class="fas fa-check"></i> Regulator for efficient flow control</li>
+        <li><i class="fas fa-check"></i> Kink resistant PVC transparent tubing</li>
+        <li><i class="fas fa-check"></i> Bulb latex for extra medication</li>
+        <li><i class="fas fa-check"></i> Two needles of 21G and 24G inside</li>
+        <li><i class="fas fa-check"></i> E.O Sterile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 3. IV INFUSION SET AIR VENTED -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/i3.jpg" class="img-fluid" alt="IV Infusion Set Air Vented">
+    <div class="product-info p-3">
+      <h4>IV INFUSION SET AIR VENTED</h4>
+      <p>Air-vented infusion set with hydrophobic filter for safer fluid delivery.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Built-in air vent & bacteria barrier hydrophobic filter</li>
+        <li><i class="fas fa-check"></i> Sharp piercing spike for easy insertion in IV container</li>
+        <li><i class="fas fa-check"></i> Disc type fluid filter to filter particulate matter</li>
+        <li><i class="fas fa-check"></i> Flash ball type injection port for extra medication</li>
+        <li><i class="fas fa-check"></i> Sterile and individually packed</li>
+        <li><i class="fas fa-check"></i> Drip chamber with air vent & bacteria barrier filter</li>
+        <li><i class="fas fa-check"></i> E.O Sterile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 4. IV INFUSION SET MICRODRIP -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/i4.jpg" class="img-fluid" alt="IV Infusion Set Microdrip">
+    <div class="product-info p-3">
+      <h4>IV INFUSION SET MICRODRIP</h4>
+      <p>Microdrip IV set for controlled and precise administration.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Built-in air vent & bacteria barrier hydrophobic filter</li>
+        <li><i class="fas fa-check"></i> Sharp piercing spike for easy insertion in IV container</li>
+        <li><i class="fas fa-check"></i> Disc type fluid filter to filter particulate matter</li>
+        <li><i class="fas fa-check"></i> Flash ball type injection port for extra medication</li>
+        <li><i class="fas fa-check"></i> Sterile and individually packed</li>
+        <li><i class="fas fa-check"></i> E.O Sterile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 5. BLOOD ADMINISTRATION SET -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/i5.jpg" class="img-fluid" alt="Blood Administration Set">
+    <div class="product-info p-3">
+      <h4>BLOOD ADMINISTRATION SET</h4>
+      <p>Blood administration set with filter for safer transfusion.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> 200 micron filter in drip chamber to prevent clots</li>
+        <li><i class="fas fa-check"></i> Sharp non-vented spike suitable for blood containers</li>
+        <li><i class="fas fa-check"></i> Flash ball type injection port for extra medication</li>
+        <li><i class="fas fa-check"></i> 150cm kink resistant tube</li>
+        <li><i class="fas fa-check"></i> Roller controller for accurate infusion adjustment</li>
+        <li><i class="fas fa-check"></i> Sterile individually packed</li>
+        <li><i class="fas fa-check"></i> E.O Sterile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 6. MEASURED VOLUME BURETTE SET -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/i6.jpg" class="img-fluid" alt="Measured Volume Burette Set">
+    <div class="product-info p-3">
+      <h4>MEASURED VOLUME BURETTE SET</h4>
+      <p>Measured volume set for accurate fluid administration.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Suitable for infusion of measured quantities of fluid</li>
+        <li><i class="fas fa-check"></i> Calibrated chamber for precise administration</li>
+        <li><i class="fas fa-check"></i> Roller controller for better flow control</li>
+        <li><i class="fas fa-check"></i> Soft and kink resistant tube</li>
+        <li><i class="fas fa-check"></i> Strong & sharp spike for smooth penetration</li>
+        <li><i class="fas fa-check"></i> Bulb/Tubing latex for easy flushing</li>
+        <li><i class="fas fa-check"></i> Floating shut-off valve to prevent air embolism</li>
+        <li><i class="fas fa-check"></i> Approx. 60 drops/ml (Size: 110 ml & 150 ml)</li>
+        <li><i class="fas fa-check"></i> Needle size: 23G</li>
+        <li><i class="fas fa-check"></i> E.O Sterile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 7. I.V. FLOW REGULATOR -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/i7.jpg" class="img-fluid" alt="I.V. Flow Regulator">
+    <div class="product-info p-3">
+      <h4>I.V. FLOW REGULATOR</h4>
+      <p>Manual IV flow regulator (5–250 ml/hr) for consistent flow control.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Controls flow rate manually (5 to 250 ml/hr)</li>
+        <li><i class="fas fa-check"></i> “Y” connector injection site for extra medication</li>
+        <li><i class="fas fa-check"></i> Constant flow rate</li>
+        <li><i class="fas fa-check"></i> E.O Sterile, non-toxic & pyrogen free</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 8. THREE WAY STOP COCK -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/i8.jpg" class="img-fluid" alt="Three Way Stop Cock">
+    <div class="product-info p-3">
+      <h4>THREE WAY STOP COCK</h4>
+      <p>Three-way stopcock for controlled infusion and additional access.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Used between infusion line and vein puncture device</li>
+        <li><i class="fas fa-check"></i> Transparent polycarbonate body for flow visualization</li>
+        <li><i class="fas fa-check"></i> Blue/red pegs for arterial/venous identification</li>
+        <li><i class="fas fa-check"></i> Smooth interior with molded luer lock</li>
+        <li><i class="fas fa-check"></i> E.T.O Sterile and pyrogen free</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 9. THREE WAY STOP COCK WITH EXTENSION LINE -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/i9.jpg" class="img-fluid" alt="Three Way Stop Cock With Extension Line">
+    <div class="product-info p-3">
+      <h4>THREE WAY STOP COCK WITH EXTENSION LINE</h4>
+      <p>Extension line set to reduce movement at cannulation site.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Moves administration site away from insertion point</li>
+        <li><i class="fas fa-check"></i> 3-way stopcock one end, male luer lock other end</li>
+        <li><i class="fas fa-check"></i> Soft, frosted, kink resistant PVC tubing</li>
+        <li><i class="fas fa-check"></i> Tube length: 5–250 cm (I.D. 3.0mm, O.D. 4.1mm)</li>
+        <li><i class="fas fa-check"></i> Optional “Y” injection port (latex/latex free)</li>
+        <li><i class="fas fa-check"></i> Sterile / Disposable / Individual packed</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 10. HIGH PRESSURE MONITORING LINE -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/i10.jpg" class="img-fluid" alt="High Pressure Monitoring Line">
+    <div class="product-info p-3">
+      <h4>HIGH PRESSURE MONITORING LINE</h4>
+      <p>For arterial blood pressure monitoring with secure luer lock connections.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Designed for arterial blood pressure monitoring</li>
+        <li><i class="fas fa-check"></i> Clear, flexible, leak-proof tubing</li>
+        <li><i class="fas fa-check"></i> Male & female luer locks for secure connection</li>
+        <li><i class="fas fa-check"></i> Sterile, non-toxic, pyrogen free</li>
+        <li><i class="fas fa-check"></i> Tube length: 25–250 cm</li>
+        <li><i class="fas fa-check"></i> Extension tube: I.D. 1.5mm, O.D. 3.0mm</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 11. LOW PRESSURE EXTENSION LINE -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/i11.jpg" class="img-fluid" alt="Low Pressure Extension Line">
+    <div class="product-info p-3">
+      <h4>LOW PRESSURE EXTENSION LINE</h4>
+      <p>Extension line suitable for low pressure fluid administration.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Convenient for low pressure applications</li>
+        <li><i class="fas fa-check"></i> Male & female luer locks for secure connection</li>
+        <li><i class="fas fa-check"></i> Tube length: 25–250 cm</li>
+        <li><i class="fas fa-check"></i> Extension tube: I.D. 3.0mm, O.D. 4.1mm</li>
+        <li><i class="fas fa-check"></i> E.O Sterile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 12. INTRAVENOUS CANNULA -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/i12.jpg" class="img-fluid" alt="Intravenous Cannula">
+    <div class="product-info p-3">
+      <h4>INTRAVENOUS CANNULA</h4>
+      <p>IV cannula for infusion of fluids and medicines with secure fixation and flashback chamber.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> For infusion of intravenous fluids and medicines</li>
+        <li><i class="fas fa-check"></i> Smooth, sharp needle for easy penetration</li>
+        <li><i class="fas fa-check"></i> Flexible wide wings for proper fixation</li>
+        <li><i class="fas fa-check"></i> Injection port for extra medication</li>
+        <li><i class="fas fa-check"></i> Transparent flashback chamber</li>
+        <li><i class="fas fa-check"></i> PTFE/FEP teflon catheter (color coded by size)</li>
+        <li><i class="fas fa-check"></i> Sterile / Disposable / Blister packed / Box packing</li>
+        <li><i class="fas fa-check"></i> E.O Sterile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 13. SCALP VEIN SET -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/i13.jpg" class="img-fluid" alt="Scalp Vein Set">
+    <div class="product-info p-3">
+      <h4>SCALP VEIN SET</h4>
+      <p>Butterfly scalp vein set for rapid venous access and patient comfort.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Rapid venous access for long infusion comfort</li>
+        <li><i class="fas fa-check"></i> Siliconized thin-walled imported needle</li>
+        <li><i class="fas fa-check"></i> Color coded butterfly wings for easy handling</li>
+        <li><i class="fas fa-check"></i> Super smooth kink resistant tube</li>
+        <li><i class="fas fa-check"></i> Sterile / Disposable / Individual blister / Poly pack</li>
+        <li><i class="fas fa-check"></i> E.O Sterile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- =========================
+     UROLOGY (SUB PRODUCTS ONLY)
+     ========================= -->
+
+<!-- 14. Urine Bag – with top outlet cap: 2lt -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/u1.jpg" class="img-fluid" alt="Urine Bag - with top outlet cap 2lt">
+    <div class="product-info p-3">
+      <h4>Urine Bag – with top outlet cap: 2lt</h4>
+      <p>2L urine bag with efficient outlet and sampling options.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> T-type bottom outlet for single hand operation</li>
+        <li><i class="fas fa-check"></i> Optional sampling port for safe urine sample collection</li>
+        <li><i class="fas fa-check"></i> Capacity: 2000ml, Tube length: 100cm</li>
+        <li><i class="fas fa-check"></i> E.O Sterile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 15. URINE COLLECTION BAG WITH TOP OUTLET -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/u2.jpg" class="img-fluid" alt="Urine Collection Bag With Top Outlet">
+    <div class="product-info p-3">
+      <h4>URINE COLLECTION BAG WITH TOP OUTLET</h4>
+      <p>Top-outlet urine collection bag with hooks for easy handling.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Special hook design for carrying/holding tube upright</li>
+        <li><i class="fas fa-check"></i> T-type bottom outlet for efficient emptying</li>
+        <li><i class="fas fa-check"></i> Optional sampling port for safe urine sample collection</li>
+        <li><i class="fas fa-check"></i> Capacity: 2000ml, Tube length: 100cm</li>
+        <li><i class="fas fa-check"></i> E.O Sterile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 16. URINE COLLECTION BAG WITH MEASURED VOLUME METER -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/u3.jpg" class="img-fluid" alt="Urine Collection Bag With Measured Volume Meter">
+    <div class="product-info p-3">
+      <h4>URINE COLLECTION BAG WITH MEASURED VOLUME METER</h4>
+      <p>Accurate hourly urine output measurement with closed-circuit safety.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Accurate hourly output measurement</li>
+        <li><i class="fas fa-check"></i> Closed circuit reduces contamination risk</li>
+        <li><i class="fas fa-check"></i> Meter with overflow facility into urine bag</li>
+        <li><i class="fas fa-check"></i> Push/Pull bottom outlet for quick emptying</li>
+        <li><i class="fas fa-check"></i> Capacity: 2000 ml approx.</li>
+        <li><i class="fas fa-check"></i> E.O Sterile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 17. URINE COLLECTION LEG BAG WITH BOTTOM OUTLET -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/u4.jpg" class="img-fluid" alt="Urine Collection Leg Bag With Bottom Outlet">
+    <div class="product-info p-3">
+      <h4>URINE COLLECTION LEG BAG WITH BOTTOM OUTLET</h4>
+      <p>Leg bag designed for mobility with comfortable strap placement.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Suitable for day/night use during incontinence</li>
+        <li><i class="fas fa-check"></i> Freedom of mobility (leg-attached)</li>
+        <li><i class="fas fa-check"></i> Comfortable strap connectors</li>
+        <li><i class="fas fa-check"></i> T-type bottom outlet valve</li>
+        <li><i class="fas fa-check"></i> Capacity: 800 ml approx.</li>
+        <li><i class="fas fa-check"></i> E.O Sterile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 18. URINE COLLECTION BAG FOR PAEDIATRIC -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/u5.jpg" class="img-fluid" alt="Urine Collection Bag for Paediatric">
+    <div class="product-info p-3">
+      <h4>URINE COLLECTION BAG FOR PAEDIATRIC</h4>
+      <p>Short-term urine collection for neonates with hypoallergenic adhesive.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> For short term urine collection of neonates</li>
+        <li><i class="fas fa-check"></i> Hypoallergenic self-adhesive for better grip</li>
+        <li><i class="fas fa-check"></i> Prevents irritation & easy removal</li>
+        <li><i class="fas fa-check"></i> Capacity: 100 ml approx.</li>
+        <li><i class="fas fa-check"></i> Also available stool urine container</li>
+        <li><i class="fas fa-check"></i> E.O Sterile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- =========================
+     CATHETER (SUB PRODUCTS ONLY)
+     ========================= -->
+
+<!-- 19. MALE EXTERNAL CATHETER -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/c1.jpg" class="img-fluid" alt="Male External Catheter">
+    <div class="product-info p-3">
+      <h4>MALE EXTERNAL CATHETER</h4>
+      <p>Pure latex external catheter with self-adhesive strip for secure fixation.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Pure latex for soft and gentle feel</li>
+        <li><i class="fas fa-check"></i> Self-adhesive strip for proper fixation</li>
+        <li><i class="fas fa-check"></i> Easy connection to urine/leg bag</li>
+        <li><i class="fas fa-check"></i> Individually packed and ready to use</li>
+        <li><i class="fas fa-check"></i> E.T.O sterile and pyrogen free</li>
+        <li><i class="fas fa-check"></i> Size: 20/25/30/35/40 mm</li>
+        <li><i class="fas fa-check"></i> E.O Sterile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 20. FOLEY BALLOON CATHETER -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/c2.jpg" class="img-fluid" alt="Foley Balloon Catheter">
+    <div class="product-info p-3">
+      <h4>FOLEY BALLOON CATHETER</h4>
+      <p>Siliconized catheter designed for short/long term urinary drainage.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Sterile paper pack (inner box 10 pcs, master carton 1000 pcs)</li>
+        <li><i class="fas fa-check"></i> Smooth eyes for atraumatic introduction & effective drainage</li>
+        <li><i class="fas fa-check"></i> Pressure resistant ultra-thin elastic balloon</li>
+        <li><i class="fas fa-check"></i> Strong drainage funnel with kink resistance</li>
+        <li><i class="fas fa-check"></i> Hard/soft non-return inflation valve</li>
+        <li><i class="fas fa-check"></i> Siliconized surface for smooth finish</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 21. SILICONE FOLEY BALLOON CATHETER -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/c3.jpg" class="img-fluid" alt="Silicone Foley Balloon Catheter">
+    <div class="product-info p-3">
+      <h4>SILICONE FOLEY BALLOON CATHETER</h4>
+      <p>100% medical grade silicone catheter with accurate drainage eyes and balanced balloon.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Sterile paper pack (inner box 10 pcs, master carton 1000 pcs)</li>
+        <li><i class="fas fa-check"></i> 100% medical grade silicone, good biocompatibility</li>
+        <li><i class="fas fa-check"></i> Smooth tapered rounded tip for easy insertion</li>
+        <li><i class="fas fa-check"></i> Accurately formed drainage eyes</li>
+        <li><i class="fas fa-check"></i> Symmetrical balloon expansion for secure retention</li>
+        <li><i class="fas fa-check"></i> Color coded sleeves for easy size identification</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 22. URETHRAL RED RUBBER CATHETER -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/c4.jpg" class="img-fluid" alt="Urethral Red Rubber Catheter">
+    <div class="product-info p-3">
+      <h4>URETHRAL RED RUBBER CATHETER</h4>
+      <p>Short-term urinary drainage catheter made from MR grade latex rubber.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Natural MR grade PV latex rubber</li>
+        <li><i class="fas fa-check"></i> For short term urinary drainage</li>
+        <li><i class="fas fa-check"></i> Round hollow tip with smooth optimal eye</li>
+        <li><i class="fas fa-check"></i> Integral tapered funnel end</li>
+        <li><i class="fas fa-check"></i> E.T.O sterile & pyrogen free</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 23. TUR SET -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/c5.jpg" class="img-fluid" alt="TUR Set">
+    <div class="product-info p-3">
+      <h4>TUR SET</h4>
+      <p>“Y” shaped set for endoscopic irrigation during TURP procedures.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> “Y” shaped for trans urethral resection irrigation</li>
+        <li><i class="fas fa-check"></i> Thumb clamps for quick bottle change</li>
+        <li><i class="fas fa-check"></i> Flexible latex tubing for easy endoscope connection</li>
+        <li><i class="fas fa-check"></i> E.T.O sterilized, non-toxic, pyrogen free</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 24. GIBBON’S CATHETER -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/c6.jpg" class="img-fluid" alt="Gibbon’s Catheter">
+    <div class="product-info p-3">
+      <h4>GIBBON’S CATHETER</h4>
+      <p>Long-term urine drainage catheter made from soft kink-resistant PVC.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Designed for long term urine drainage</li>
+        <li><i class="fas fa-check"></i> Soft non-toxic, non-irritant medical grade PVC</li>
+        <li><i class="fas fa-check"></i> Compatible with catheter lubrication</li>
+        <li><i class="fas fa-check"></i> X-ray opaque line through its length</li>
+        <li><i class="fas fa-check"></i> Sterile / Disposable / Individual packed</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 25. NELATON CATHETER -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/c7.jpg" class="img-fluid" alt="Nelaton Catheter">
+    <div class="product-info p-3">
+      <h4>NELATON CATHETER</h4>
+      <p>Smooth medical-grade PVC catheter with color-coded connector for size ID.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Non-toxic, non-irritant medical grade PVC</li>
+        <li><i class="fas fa-check"></i> Soft rounded closed tip with two lateral eyes</li>
+        <li><i class="fas fa-check"></i> X-ray opaque line & color coded connector</li>
+        <li><i class="fas fa-check"></i> Universal funnel connector for urine bag</li>
+        <li><i class="fas fa-check"></i> E.T.O sterile & pyrogen free</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 26. RECTAL CATHETER -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/c8.jpg" class="img-fluid" alt="Rectal Catheter">
+    <div class="product-info p-3">
+      <h4>RECTAL CATHETER</h4>
+      <p>For enema introduction and aspiration with soft kink-resistant tubing.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> For enema solution / rectal fluid aspiration</li>
+        <li><i class="fas fa-check"></i> Soft non-toxic kink-resistant medical grade PVC</li>
+        <li><i class="fas fa-check"></i> Funnel connector for suction equipment</li>
+        <li><i class="fas fa-check"></i> Rounded closed tip with two lateral eyes</li>
+        <li><i class="fas fa-check"></i> Option of radio-opaque line for X-ray visualization</li>
+        <li><i class="fas fa-check"></i> Sterile / Disposable / Individual packed</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 27. URINE POT (TWO IN ONE) -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/c9.jpg" class="img-fluid" alt="Urine Pot (Two in One)">
+    <div class="product-info p-3">
+      <h4>URINE POT (TWO IN ONE)</h4>
+      <p>2-in-1 urine pot for male and female with hygienic cover.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Suitable for male & female (2 in 1)</li>
+        <li><i class="fas fa-check"></i> Hygienic cover, odorless</li>
+        <li><i class="fas fa-check"></i> Easy carry handle</li>
+        <li><i class="fas fa-check"></i> Standing or lying storage</li>
+        <li><i class="fas fa-check"></i> Disposable & individually packed</li>
+        <li><i class="fas fa-check"></i> 1000 ml capacity with graduation mark</li>
+        <li><i class="fas fa-check"></i> Also available Male Urine Pot</li>
+        <li><i class="fas fa-check"></i> E.O Sterile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 28. BED PAN -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/c11.jpg" class="img-fluid" alt="Bed Pan">
+    <div class="product-info p-3">
+      <h4>BED PAN</h4>
+      <p>Medical-grade bed pan for patient care and hygiene.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Made from medical grade polypropylene</li>
+        <li><i class="fas fa-check"></i> Leak proof</li>
+        <li><i class="fas fa-check"></i> Sterile / Disposable</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 29. URINE CULTURE BOTTLE -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/c12.jpg" class="img-fluid" alt="Urine Culture Bottle">
+    <div class="product-info p-3">
+      <h4>URINE CULTURE BOTTLE</h4>
+      <p>Leak-proof sterile container for urine sample culture testing.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> For urine sample collection (culture test)</li>
+        <li><i class="fas fa-check"></i> Medical grade polypropylene</li>
+        <li><i class="fas fa-check"></i> Absolutely leak proof</li>
+        <li><i class="fas fa-check"></i> Sterile / Disposable</li>
+        <li><i class="fas fa-check"></i> Size: 30 ml, 50 ml</li>
+        <li><i class="fas fa-check"></i> Also available stool urine container</li>
+        <li><i class="fas fa-check"></i> E.O Sterile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- =========================
+     MISCELLANEOUS RANGE (SUB PRODUCTS ONLY)
+     ========================= -->
+
+<!-- 30. LATEX SURGICAL GLOVES PRE POWDERED -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/m1.jpg" class="img-fluid" alt="Latex Surgical Gloves Pre Powdered">
+    <div class="product-info p-3">
+      <h4>LATEX SURGICAL GLOVES PRE POWDERED</h4>
+      <p>Surgical gloves for invasive procedures with strong barrier protection and comfort.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Protective covering for hands in invasive surgery</li>
+        <li><i class="fas fa-check"></i> Special quality natural rubber latex</li>
+        <li><i class="fas fa-check"></i> Lightly powdered with bio-absorbable corn starch (USP grade)</li>
+        <li><i class="fas fa-check"></i> Anatomically shaped; micro-rough surface for grip</li>
+        <li><i class="fas fa-check"></i> Superior barrier protection & tactile sensitivity</li>
+        <li><i class="fas fa-check"></i> Extensively leached to reduce residues</li>
+        <li><i class="fas fa-check"></i> Bio-burden and sterility tested</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 31. LATEX SURGICAL GLOVES POWDER FREE -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/m2.jpg" class="img-fluid" alt="Latex Surgical Gloves Powder Free">
+    <div class="product-info p-3">
+      <h4>LATEX SURGICAL GLOVES POWDER FREE</h4>
+      <p>Powder-free surgical gloves to reduce powder-related risks.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Eliminates risks associated with glove powder</li>
+        <li><i class="fas fa-check"></i> Chlorinated / polymer coated for easy donning</li>
+        <li><i class="fas fa-check"></i> Manufactured under hygienic conditions</li>
+        <li><i class="fas fa-check"></i> Sterilized by EO</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 32. EXAMINATION LATEX GLOVES (Prepowdered/Polymer/Chlorinated + Vinyl + Nitrile mentioned) -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/m3.jpg" class="img-fluid" alt="Examination Gloves">
+    <div class="product-info p-3">
+      <h4>EXAMINATION GLOVES (LATEX / VINYL / NITRILE)</h4>
+      <p>Comfortable examination gloves options for clinical use.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Latex gloves (prepowdered / polymer coated / chlorinated)</li>
+        <li><i class="fas fa-check"></i> Vinyl gloves</li>
+        <li><i class="fas fa-check"></i> Nitrile gloves</li>
+        <li><i class="fas fa-check"></i> Non finger fatigue; cool and comfortable</li>
+        <li><i class="fas fa-check"></i> Size: Small, Medium, Large, Ex-Large</li>
+        <li><i class="fas fa-check"></i> Sterile / Disposable / Printed box packing</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 33. EXAMINATION GLOVES (ALT LISTING) -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/m4.jpg" class="img-fluid" alt="Examination Gloves Variety">
+    <div class="product-info p-3">
+      <h4>EXAMINATION GLOVES (VARIETY)</h4>
+      <p>Examination gloves in multiple material options for different needs.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Latex (prepowdered / polymer coated / chlorinated)</li>
+        <li><i class="fas fa-check"></i> Nitrile gloves</li>
+        <li><i class="fas fa-check"></i> Vinyl gloves</li>
+        <li><i class="fas fa-check"></i> Non finger fatigue; cool and comfortable</li>
+        <li><i class="fas fa-check"></i> Size: Small, Medium, Large, Ex-Large</li>
+        <li><i class="fas fa-check"></i> Sterile / Disposable / Printed box packing</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- =========================
+     ORTHOPAEDIC RANGE (SUB PRODUCTS ONLY)
+     ========================= -->
+
+<!-- 34. COMBINE DRESSING ABSORBENT COTTON WOOL -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/o1.jpg" class="img-fluid" alt="Combine Dressing Absorbent Cotton Wool">
+    <div class="product-info p-3">
+      <h4>COMBINE DRESSING ABSORBENT COTTON WOOL</h4>
+      <p>Highly absorbent combine dressing with hydrophobic backing.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Manufactured using highly absorbent cotton</li>
+        <li><i class="fas fa-check"></i> Non-woven facing & cotton filler with rayon fibers</li>
+        <li><i class="fas fa-check"></i> Helps liquid diffuse throughout pad</li>
+        <li><i class="fas fa-check"></i> Hydrophobic backing prevents strike-through</li>
+        <li><i class="fas fa-check"></i> Sterilized by E.T.O.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 35. ABSORBENT COTTON WOOL -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/o2.jpg" class="img-fluid" alt="Absorbent Cotton Wool">
+    <div class="product-info p-3">
+      <h4>ABSORBENT COTTON WOOL</h4>
+      <p>100% cotton wool for cleaning, swabbing, and wound care.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Fabricated using 100% cotton</li>
+        <li><i class="fas fa-check"></i> Free from naps, leaf, shell and seeds</li>
+        <li><i class="fas fa-check"></i> Bleached for good whiteness & excellent absorbency</li>
+        <li><i class="fas fa-check"></i> Convenient for cleaning & swabbing wounds</li>
+        <li><i class="fas fa-check"></i> Packaging as per client requirement</li>
+        <li><i class="fas fa-check"></i> Size: 50,100,200,400,500 gms</li>
+        <li><i class="fas fa-check"></i> Also available zigzag cotton</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 36. GAMJEE ROLL -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/o3.jpg" class="img-fluid" alt="Gamjee Roll">
+    <div class="product-info p-3">
+      <h4>GAMJEE ROLL</h4>
+      <p>Superior cotton yarn roll for swabbing, cleaning, and dressing support.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Made from superior cotton yarn</li>
+        <li><i class="fas fa-check"></i> Fast absorption rate & better tending capacity</li>
+        <li><i class="fas fa-check"></i> Used for swabbing/cleaning & over dressing support</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 37. ORTHOPEDIC BANDAGE -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/o4.jpg" class="img-fluid" alt="Orthopedic Bandage">
+    <div class="product-info p-3">
+      <h4>ORTHOPEDIC BANDAGE</h4>
+      <p>Bandage for orthopaedic support and general wound dressing needs.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Suitable for orthopaedic support and bandaging</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 38. ABSORBENT GAUZE SWABS -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/o6.jpg" class="img-fluid" alt="Absorbent Gauze Swabs">
+    <div class="product-info p-3">
+      <h4>ABSORBENT GAUZE SWABS</h4>
+      <p>Soft absorbent gauze swabs for wound cleaning and dressing.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Ideal for cleaning and dressing wounds</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 39. PARAFFIN GAUZE DRESSING -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/o7.jpg" class="img-fluid" alt="Paraffin Gauze Dressing">
+    <div class="product-info p-3">
+      <h4>PARAFFIN GAUZE DRESSING</h4>
+      <p>Paraffin gauze dressing for non-adherent wound coverage.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Non-adherent dressing for wound care</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 40. CHLORHEXIDINE GAUZE DRESSING -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/o8.jpg" class="img-fluid" alt="Chlorhexidine Gauze Dressing">
+    <div class="product-info p-3">
+      <h4>CHLORHEXIDINE GAUZE DRESSING</h4>
+      <p>Antiseptic gauze dressing with chlorhexidine for wound protection.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Antiseptic support for dressing applications</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 41. CANNULA FIXATOR -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/o9.jpg" class="img-fluid" alt="Cannula Fixator">
+    <div class="product-info p-3">
+      <h4>CANNULA FIXATOR</h4>
+      <p>Elastic adhesive dressing to secure IV cannula in place.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Semi permeable adhesive dressing (B.P.)</li>
+        <li><i class="fas fa-check"></i> Secures catheter in challenging IV applications</li>
+        <li><i class="fas fa-check"></i> “U” shaped design for secure cannula hold</li>
+        <li><i class="fas fa-check"></i> Sticks well, removes easily</li>
+        <li><i class="fas fa-check"></i> Sterile / Disposable / Individual packed</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 42. COTTON CREPE BANDAGE -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/o10.jpg" class="img-fluid" alt="Cotton Crepe Bandage">
+    <div class="product-info p-3">
+      <h4>COTTON CREPE BANDAGE</h4>
+      <p>Thick fabric crepe bandage with elastic support and comfort.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Manufactured using thick fabric</li>
+        <li><i class="fas fa-check"></i> Woven fast edges & controlled uniform pressure</li>
+        <li><i class="fas fa-check"></i> Helps normal skin breathing; doesn’t hamper flexibility</li>
+        <li><i class="fas fa-check"></i> Washable to restore elasticity</li>
+        <li><i class="fas fa-check"></i> Available in various widths; length up to 4 m</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 43. ELASTIC ADHESIVE BANDAGE -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/o11.jpg" class="img-fluid" alt="Elastic Adhesive Bandage">
+    <div class="product-info p-3">
+      <h4>ELASTIC ADHESIVE BANDAGE</h4>
+      <p>Heavy-duty strapping bandage for ankle/knee/hand/wrist taping.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Lightweight strapping bandage for taping</li>
+        <li><i class="fas fa-check"></i> Moderate to maximum strength support</li>
+        <li><i class="fas fa-check"></i> Heavy-duty with aggressive adhesion</li>
+        <li><i class="fas fa-check"></i> Soft cotton with good conformability</li>
+        <li><i class="fas fa-check"></i> Reliable stickiness; no residue</li>
+        <li><i class="fas fa-check"></i> Color thread in middle helps overlapping</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 44. PLASTER OF PARIS BANDAGE -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/o12.jpg" class="img-fluid" alt="Plaster of Paris Bandage">
+    <div class="product-info p-3">
+      <h4>PLASTER OF PARIS BANDAGE</h4>
+      <p>POP bandage for orthopaedic casting and immobilization.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Used for rectifying bone damages and dislocation</li>
+        <li><i class="fas fa-check"></i> Specific length 2.7 meter; multiple sizes available</li>
+        <li><i class="fas fa-check"></i> High cast strength & optimum setting time</li>
+        <li><i class="fas fa-check"></i> Extra durable; minimum powder loss</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 45. ADHESIVE TAPE -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/o13.jpg" class="img-fluid" alt="Adhesive Tape">
+    <div class="product-info p-3">
+      <h4>ADHESIVE TAPE</h4>
+      <p>High-grade adhesive tape for clinical and general applications.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Manufactured using high grade raw material</li>
+        <li><i class="fas fa-check"></i> Used for diverse commercial and household uses</li>
+        <li><i class="fas fa-check"></i> Available in various sizes</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 46. ROLLER BANDAGE -->
+<div class="col-lg-4 col-md-6">
+  <div class="product-card">
+    <img src="https://www.dramshealthcare.com/images/products/o14.jpg" class="img-fluid" alt="Roller Bandage">
+    <div class="product-info p-3">
+      <h4>ROLLER BANDAGE</h4>
+      <p>Odorless roller bandage for wound dressing and absorbency.</p>
+      <ul class="product-features">
+        <li><i class="fas fa-check"></i> Used in wound dressing</li>
+        <li><i class="fas fa-check"></i> Odorless and absorbs moisture</li>
+        <li><i class="fas fa-check"></i> Individually packed (10 rolls per pack)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+        <!-- Empty card removed / keep grid spacing (optional) -->
+        <!-- If you want 3 cards in a row, you can duplicate any product card here later -->
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+    
+    <!-- Product Range Summary -->
+    <section class="py-5 bg-light-gray">
+        <div class="container">
+            <h2 class="section-title text-center">Complete Product Range</h2>
+            <div class="row text-center mt-5">
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-icon mx-auto">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <h4>Injection Products</h4>
+                    <p>Syringes, needles, IV cannulas</p>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-icon mx-auto">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h4>Surgical Supplies</h4>
+                    <p>Gloves, masks, gowns, drapes</p>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-icon mx-auto">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <h4>Hospital Consumables</h4>
+                    <p>Catheters, urine bags, wound care</p>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-icon mx-auto">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h4>Infusion Equipment</h4>
+                    <p>IV sets, transfusion systems</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h3>Request Our Complete Product Catalog</h3>
+                    <p class="mb-0">Get detailed specifications, pricing, and technical information for all our medical products.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="contact.html" class="btn btn-light btn-lg">Download Catalog</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Product Image</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <img id="modalImage" src="" class="modal-img" alt="Product Image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>Juniper International</h5>
+                    <p>A leading importer, distributor, and supplier of medical, surgical, and healthcare products across Nepal since 2015.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="products.html">Products</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Our Services</h5>
+                    <div class="footer-links">
+                        <a href="products.html#surgical">Surgical Products</a>
+                        <a href="products.html#consumables">Medical Consumables</a>
+                        <a href="products.html#infusion">Infusion Equipment</a>
+                        <a href="contact.html">Consultation</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-12 mb-4">
+                    <h5>Contact Info</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>Kathmandu, Nepal</p>
+                    <p><i class="fas fa-phone me-2"></i>+977 9851059404</p>
+                    <p><i class="fas fa-envelope me-2"></i>Juniperinternationalnepal@gmail.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Juniper International Pvt. Ltd. All rights reserved. Develop by &copy;<a href="https://younghubitsolutions.com/" target="_blank">Young Hub IT Solutions</a></p>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if(window.scrollY > 50) {
+                navbar.style.padding = '10px 0';
+                navbar.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.padding = '15px 0';
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Set active nav link
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                if(link.getAttribute('href') === 'products.html') {
+                    link.classList.add('active');
+                }
+            });
+
+            // Image modal functionality
+            const imageModal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            
+            if(imageModal) {
+                imageModal.addEventListener('show.bs.modal', function(event) {
+                    const button = event.relatedTarget;
+                    const imageUrl = button.getAttribute('data-img');
+                    modalImage.src = imageUrl;
+                });
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if(this.getAttribute('href') === '#') return;
+                    
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
